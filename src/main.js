@@ -7,6 +7,8 @@ import { Provider } from 'react-redux'
 import Routes from './routes'
 import reduxService from './services/reduxService'
 
+require('./styles/global.scss')
+
 const virtualDOM = (
   <Provider store={reduxService.getStore()}>
     {Routes}
