@@ -4,22 +4,42 @@ import { reduxForm, Field } from 'redux-form'
 import autobind from 'core-decorators/lib/autobind'
 
 /* Internal dependencies */
-import styles from './SignInForm.scss'
+import styles from './SignUpForm.scss'
 import Input from '../../elements/Input'
 import Button from '../../elements/Button'
 
 @reduxForm({
-  form: 'signin',
+  form: 'signup',
   initialValues: {
+    name: '',
     email: '',
     password: '',
+    passwordConfirm: '',
   }
 })
-class SignInForm extends React.Component {
+class SignUpForm extends React.Component {
 
   @autobind
-  handleSignIn(user) {
+  handleSignUp(user) {
     console.log(user)
+  }
+
+  @autobind
+  renderNameField(field) {
+    const { input, meta } = field
+    return (
+      <div className={styles.row}>
+        <div className={styles.label}>
+          Name / Nickname
+        </div>
+        <Input
+          autoFocus
+          value={input.value}
+          onChange={input.onChange}
+          placeholder="성명 / 닉네임을 입력해주세요"
+          className={styles.input} />
+      </div>
+    )
   }
 
   @autobind
@@ -58,18 +78,38 @@ class SignInForm extends React.Component {
     )
   }
 
+  @autobind
+  renderPasswordConfirmField(field) {
+    const { input, meta } = field
+    return (
+      <div className={styles.row}>
+        <div className={styles.label}>
+          Password
+        </div>
+        <Input
+          type="password"
+          value={input.value}
+          onChange={input.onChange}
+          placeholder="비밀번호를 한번 더 입력해주세요"
+          className={styles.input} />
+      </div>
+    )
+  }
+
   render() {
     const { submitting, pristine, handleSubmit } = this.props
     return (
-      <form className={styles.wrapper} onSubmit={handleSubmit(this.handleSignIn)}>
+      <form className={styles.wrapper} onSubmit={handleSubmit(this.handleSignUp)}>
+        <Field name="name" component={this.renderNameField} />
         <Field name="email" component={this.renderEmailField} />
         <Field name="password" component={this.renderPasswordField} />
+        <Field name="passwordConfirm" component={this.renderPasswordConfirmField} />
         <Button type="submit" className={styles.button}>
-          로그인하기
+          회원 가입
         </Button>
       </form>
     )
   }
 }
 
-export default SignInForm
+export default SignUpForm

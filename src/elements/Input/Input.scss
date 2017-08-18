@@ -10,5 +10,9 @@
     border: none;
     border-bottom: 1px solid $warm-grey;
     background-color: transparent;
+
+    &:focus {
+      outline: none;
+    }
   }
 }

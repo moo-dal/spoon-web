@@ -2,23 +2,23 @@
 import React from 'react'
 
 /* Internal dependencies */
-import styles from './SignIn.scss'
-import SignInForm from '../../components/SignInForm'
+import styles from './SignUp.scss'
+import SignUpForm from '../../components/SignUpForm'
 
-class SignIn extends React.Component {
+class SignUp extends React.Component {
 
   render() {
     return (
       <div className={styles.wrapper}>
         <div className={styles.header}>
-          SIGN IN
+          SIGN UP
         </div>
         <div className={styles.body}>
-          <SignInForm />
+          <SignUpForm />
         </div>
       </div>
     )
   }
 }
 
-export default SignIn
+export default SignUp
