@@ -21,6 +21,24 @@ const signInEpic = action$ => (
     )
 )
 
+const signUpEpic = action$ => (
+  action$.ofType(AT.REQUEST_SIGN_UP)
+    .switchMap(action => {
+      const { name, email, password, passwordCheck } = action.payload
+      return Rx.Observable.fromPromise(accountAPI.signUp(email, name, password, passwordCheck))
+          .map(payload => ({
+            type: AT.REQUEST_SIGN_UP_SUCCESS,
+            payload,
+          }))
+          .catch(payload => Rx.Observable.of({
+            type: AT.REQUEST_SIGN_UP_ERROR,
+            payload,
+          }))
+      }
+    )
+)
+
 export default combineEpics(
-  signInEpic
+  signInEpic,
+  signUpEpic
 )

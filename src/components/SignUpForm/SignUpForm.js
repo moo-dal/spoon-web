@@ -14,14 +14,14 @@ import Button from '../../elements/Button'
     name: '',
     email: '',
     password: '',
-    passwordConfirm: '',
+    passwordCheck: '',
   }
 })
 class SignUpForm extends React.Component {
 
   @autobind
   handleSignUp(user) {
-    console.log(user)
+    this.props.onSignUp(user)
   }
 
   @autobind
@@ -79,7 +79,7 @@ class SignUpForm extends React.Component {
   }
 
   @autobind
-  renderPasswordConfirmField(field) {
+  renderPasswordCheckField(field) {
     const { input, meta } = field
     return (
       <div className={styles.row}>
@@ -103,7 +103,7 @@ class SignUpForm extends React.Component {
         <Field name="name" component={this.renderNameField} />
         <Field name="email" component={this.renderEmailField} />
         <Field name="password" component={this.renderPasswordField} />
-        <Field name="passwordConfirm" component={this.renderPasswordConfirmField} />
+        <Field name="passwordCheck" component={this.renderPasswordCheckField} />
         <Button type="submit" className={styles.button}>
           회원 가입
         </Button>

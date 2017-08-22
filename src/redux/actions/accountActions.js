@@ -4,4 +4,5 @@ import { actionCreator } from './actionCreator'
 
 export default {
   signIn: actionCreator(AT.REQUEST_SIGN_IN),
+  signUp: actionCreator(AT.REQUEST_SIGN_UP),
 }
