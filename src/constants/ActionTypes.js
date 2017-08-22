@@ -7,4 +7,9 @@ export default keyMirror({
   REQUEST_GET_USER: null,
   REQUEST_GET_USER_SUCCESS: null,
   REQUEST_GET_USER_ERROR: null,
+
+  /* Account */
+  REQUEST_SIGN_IN: null,
+  REQUEST_SIGN_IN_SUCCESS: null,
+  REQUEST_SIGN_IN_ERROR: null,
 })

@@ -3,7 +3,7 @@ import 'whatwg-fetch'
 
 class ApiService {
   constructor() {
-    this.END_POINT = '//api.github.com'
+    this.END_POINT = 'http://13.114.78.152:8000'
 
   }
 
@@ -23,6 +23,18 @@ class ApiService {
 
   get(url) {
     return fetch(this.END_POINT + url)
+      .then(this._checkStatus)
+      .then(this._parseJSON)
+  }
+
+  post(url, body) {
+    return fetch(this.END_POINT + url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    })
       .then(this._checkStatus)
       .then(this._parseJSON)
   }

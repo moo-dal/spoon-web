@@ -19,7 +19,7 @@ class SignInForm extends React.Component {
 
   @autobind
   handleSignIn(user) {
-    console.log(user)
+    this.props.onSignIn(user)
   }
 
   @autobind
