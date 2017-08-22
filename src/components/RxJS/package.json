@@ -1,0 +1,6 @@
+{
+  "name": "RxJS",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./RxJS.js"
+}

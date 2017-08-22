@@ -1,0 +1,19 @@
+@import '../../styles/colors';
+
+.wrapper {
+  position: relative;
+  width: 600px;
+  height: 100%;
+  padding: 68px 66px;
+  background-color: $pale-grey;
+
+  .header {
+    color: $slate;
+    font-size: 50px;
+    font-weight: 300;
+  }
+
+  .body {
+
+  }
+}
