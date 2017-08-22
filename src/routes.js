@@ -4,13 +4,10 @@ import { Router, Route, IndexRedirect } from 'react-router'
 
 /* Internal dependencies */
 import reduxService from './services/reduxService'
-import Welcome from './components/Welcome'
-import State from './components/State'
-import Redux from './components/Redux'
-import RxJS from './components/RxJS'
 import App from './containers/App'
 import SignIn from './containers/SignIn'
-import SignUp from "./containers/SignUp/SignUp";
+import SignUp from './containers/SignUp'
+import Daily from './containers/DailySchedule'
 
 export default (
   <Router history={reduxService.getHistory()}>
@@ -18,10 +15,7 @@ export default (
       <IndexRedirect to="signin" />
       <Route path="signin" component={SignIn} />
       <Route path="signup" component={SignUp} />
-      <Route path="welcome" component={Welcome} />
-      <Route path="state" component={State} />
-      <Route path="redux" component={Redux} />
-      <Route path="rxjs" component={RxJS} />
+      <Route path="daily" component={Daily} />
     </Route>
   </Router>
 )
