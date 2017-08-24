@@ -24,7 +24,9 @@
     "redux": "^3.7.1",
     "redux-form": "^6.8.0",
     "redux-observable": "^0.14.1",
+    "redux-preloader": "^0.3.8",
     "rxjs": "^5.4.2",
+    "store2": "^2.5.2",
     "uuid": "^3.1.0"
   },
   "devDependencies": {

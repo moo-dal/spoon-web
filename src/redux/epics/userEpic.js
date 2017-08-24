@@ -42,7 +42,25 @@ const signUpEpic = action$ => (
     )
 )
 
+const getMeEpic = action$ => (
+  action$.ofType(AT.REQUEST_GET_ME)
+    .switchMap(action =>
+      Rx.Observable.fromPromise(accountAPI.getMe())
+          .map(payload => ({
+            uuid: action.uuid,
+            type: AT.REQUEST_GET_ME_SUCCESS,
+            payload,
+          }))
+          .catch(payload => Rx.Observable.of({
+            uuid: action.uuid,
+            type: AT.REQUEST_GET_ME_ERROR,
+            payload,
+          }))
+    )
+)
+
 export default combineEpics(
   signInEpic,
-  signUpEpic
+  signUpEpic,
+  getMeEpic
 )
