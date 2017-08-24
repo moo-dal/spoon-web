@@ -3,30 +3,31 @@ import Immutable from 'immutable'
 
 /* Internal dependencies */
 import AT from '../../constants/ActionTypes'
+import User from '../../models/User'
 
 const initState = {
   isFetching: false,
   hasError: false,
-  user: Immutable.Map(),
+  account: new User(),
 }
 
 export default (state = initState, action) => {
   switch (action.type) {
-    case AT.REQUEST_GET_USER:
+    case AT.REQUEST_SIGN_IN:
       return {
         ...state,
         isFetching: true,
         hasError: false,
       }
 
-    case AT.REQUEST_GET_USER_SUCCESS:
+    case AT.REQUEST_SIGN_IN_SUCCESS:
       return {
         ...state,
         isFetching: false,
-        user: Immutable.fromJS(action.payload),
+        user: new User(action.payload.user),
       }
 
-    case AT.REQUEST_GET_USER_ERROR:
+    case AT.REQUEST_SIGN_IN_ERROR:
       return {
         ...state,
         isFetching: false,

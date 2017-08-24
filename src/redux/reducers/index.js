@@ -1,8 +1,6 @@
 /* Internal dependencies */
-import todoReducer from './todoReducer'
-import githubReducer from './githubReducer'
+import userReducer from './userReducer'
 
 export default {
-  todoReducer,
-  githubReducer,
+  userReducer,
 }
