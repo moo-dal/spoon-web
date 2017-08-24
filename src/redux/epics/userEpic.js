@@ -11,10 +11,12 @@ const signInEpic = action$ => (
     .switchMap(action =>
       Rx.Observable.fromPromise(accountAPI.signIn(action.payload.email, action.payload.password))
         .map(payload => ({
+          uuid: action.uuid,
           type: AT.REQUEST_SIGN_IN_SUCCESS,
           payload,
         }))
         .catch(payload => Rx.Observable.of({
+          uuid: action.uuid,
           type: AT.REQUEST_SIGN_IN_ERROR,
           payload,
         }))
@@ -27,10 +29,12 @@ const signUpEpic = action$ => (
       const { name, email, password, passwordCheck } = action.payload
       return Rx.Observable.fromPromise(accountAPI.signUp(email, name, password, passwordCheck))
           .map(payload => ({
+            uuid: action.uuid,
             type: AT.REQUEST_SIGN_UP_SUCCESS,
             payload,
           }))
           .catch(payload => Rx.Observable.of({
+            uuid: action.uuid,
             type: AT.REQUEST_SIGN_UP_ERROR,
             payload,
           }))

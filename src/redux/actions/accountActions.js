@@ -1,8 +1,8 @@
 /* Internal dependencies */
 import AT from '../../constants/ActionTypes'
-import { actionCreator } from './actionCreator'
+import { actionCreatorWithPromise } from './actionCreator'
 
 export default {
-  signIn: actionCreator(AT.REQUEST_SIGN_IN),
-  signUp: actionCreator(AT.REQUEST_SIGN_UP),
+  signIn: actionCreatorWithPromise(AT.REQUEST_SIGN_IN),
+  signUp: actionCreatorWithPromise(AT.REQUEST_SIGN_UP),
 }

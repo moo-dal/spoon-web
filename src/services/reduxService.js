@@ -9,6 +9,7 @@ import { combineEpics, createEpicMiddleware } from 'redux-observable'
 /* Internal dependencies */
 import reducers from '../redux/reducers'
 import epics from '../redux/epics'
+import actionsLifecycle from '../redux/middleWares/actionsLifecycle'
 
 class ReduxService {
   constructor() {
@@ -20,6 +21,7 @@ class ReduxService {
         form: formReducer,
       }),
       applyMiddleware(
+        actionsLifecycle,
         routerMiddleware(history),
         createEpicMiddleware(combineEpics(epics))
       )
