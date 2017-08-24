@@ -104,7 +104,7 @@ class SignUpForm extends React.Component {
         <Field name="email" component={this.renderEmailField} />
         <Field name="password" component={this.renderPasswordField} />
         <Field name="passwordCheck" component={this.renderPasswordCheckField} />
-        <Button type="submit" buttonType={Button.ButtonTypes.BORDER} className={styles.button}>
+        <Button type="submit" className={styles.button}>
           회원 가입
         </Button>
       </form>
