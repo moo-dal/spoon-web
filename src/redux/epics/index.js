@@ -2,10 +2,8 @@
 import { combineEpics } from 'redux-observable'
 
 /* Internal dependencies */
-import githubEpic from './githubEpic'
-import accountEpic from './accountEpic'
+import userEpic from './userEpic'
 
 export default combineEpics(
-  githubEpic,
-  accountEpic
+  userEpic
 )

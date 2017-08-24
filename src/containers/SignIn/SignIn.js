@@ -16,6 +16,12 @@ class SignIn extends React.Component {
   @autobind
   handleSignIn(user) {
     this.props.dispatch(accountActions.signIn(user))
+      .promise
+      .then(() => {
+        this.props.dispatch(push('/daily'))
+      }, () => {
+        console.log("로그인 실패")
+      })
   }
 
   @autobind
