@@ -1,13 +1,13 @@
 {
-  "name": "zoyi-react-boilerplate",
+  "name": "spoon",
   "version": "0.0.1",
-  "description": "React boilerplate for ZOYI",
+  "description": "spoon for web",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev:web": "webpack-dev-server --progress --colors"
   },
-  "author": "ZOYI",
+  "author": "moodal",
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.5",
