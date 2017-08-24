@@ -5,16 +5,18 @@
   color: $slate;
 
   .row {
+    position: relative;
     margin-bottom: 50px;
     display: flex;
     align-items: center;
-    height: 27px;
+    height: 31px;
 
     .label {
       width: 126px;
     }
 
     .input {
+      height: 100%;
       flex: 1 1 auto;
       margin-left: 16px;
     }
