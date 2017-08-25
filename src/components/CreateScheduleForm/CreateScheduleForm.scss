@@ -1,0 +1,41 @@
+@import '../../styles/colors';
+
+.wrapper {
+  margin-top: 120px;
+  width: 520px;
+  background-color: $white-90;
+  border-radius: 10px;
+  color: $slate;
+
+  .header {
+    font-size: 20px;
+    font-weight: 500;
+    padding: 25px 28px;
+    display: flex;
+    align-items: center;
+
+    .title {
+      flex: 1 1 auto;
+    }
+  }
+
+  .row {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    padding: 0 28px;
+
+    .label {
+      width: 100px;
+    }
+
+    .input {
+      flex: 1 1 auto;
+
+      > input {
+        font-size: 14px;
+      }
+    }
+  }
+}

@@ -29,4 +29,25 @@
     font-weight: 300;
     color: $white;
   }
+
+  .body {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .creator {
+      margin-top: 90px;
+      font-size: 18px;
+      color: $white;
+
+      span {
+        margin-right: 17px;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
 }
