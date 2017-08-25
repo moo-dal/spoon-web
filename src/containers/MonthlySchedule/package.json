@@ -1,0 +1,6 @@
+{
+  "name": "MonthlySchedule",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./MonthlySchedule.js"
+}

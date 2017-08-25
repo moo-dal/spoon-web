@@ -1,22 +1,46 @@
 @import '../../styles/colors';
 
-%btn-default {
+.button {
   width: 300px;
   height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $slate;
   border-radius: 10px;
   border: none;
   outline: none;
   color: white;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     cursor: pointer;
   }
 }
 
-.button {
-  @extend %btn-default;
+.default {
+  background-color: $grey-blue;
+
+  &:hover {
+    box-shadow: 1px 2px 4px 0 rgba(79, 79, 79, 0.5);
+  }
+}
+
+.border {
+  background-color: transparent;
+  border: 1px solid $warm-grey-two;
+  color: $slate;
+
+  &:hover {
+    box-shadow: 1px 2px 4px 0 rgba(144, 144, 144, 0.5);
+  }
+}
+
+.white {
+  background-color: $white-99;
+  color: $soft-blue;
+  border: solid 1px $grey-blue;
+
+  &:hover {
+    box-shadow: 1px 2px 4px 0 rgba(144, 144, 144, 0.5);
+  }
 }

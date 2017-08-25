@@ -9,8 +9,11 @@ const signUp = (email, name, password, passwordCheck) => {
   apiService.post(`/accounts/`, { email, name, password, passwordCheck })
 }
 
+const getMe = () => (apiService.get('/accounts/tokens/validate'))
+
 export default {
   signIn,
   signUp,
+  getMe,
 }
 

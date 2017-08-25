@@ -1,0 +1,75 @@
+@import '../../styles/colors';
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 40px;
+  color: $white;
+
+  .name {
+    height: 100%;
+
+    span {
+      margin-left: 12px;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .overlay {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: -25px;
+    width: 275px;
+    padding: 15px;
+    background-color: $white-90;
+    border-radius: 10px;
+    box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.5);
+    font-size: 14px;
+    color: $slate;
+
+    .row {
+      display: flex;
+      align-items: center;
+      height: 20px;
+
+      .label {
+        width: 60px;
+        padding-left: 7px;
+      }
+
+      .content {
+
+      }
+    }
+
+    .divider {
+      margin: 10px 0;
+      width: 100%;
+      height: 1px;
+      background-color: $slate;
+    }
+
+    .button {
+      margin-top: 25px;
+      width: 100%;
+    }
+
+    &:after {
+      position: absolute;
+      top: -5px;
+      right: 19px;
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid $white-90;
+    }
+  }
+}

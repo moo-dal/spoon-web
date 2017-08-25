@@ -16,4 +16,13 @@ export default keyMirror({
   REQUEST_SIGN_UP: null,
   REQUEST_SIGN_UP_SUCCESS: null,
   REQUEST_SIGN_UP_ERROR: null,
+
+  REQUEST_SIGN_OUT: null,
+
+  REQUEST_GET_ME: null,
+  REQUEST_GET_ME_SUCCESS: null,
+  REQUEST_GET_ME_ERROR: null,
+
+  /* Schedule */
+  REQUEST_SET_CALENDAR_DATE: null,
 })

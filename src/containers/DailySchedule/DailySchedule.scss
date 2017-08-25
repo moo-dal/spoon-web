@@ -1,0 +1,53 @@
+@import '../../styles/colors';
+
+.wrapper {
+  position: relative;
+  width: 600px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+  background-image: url('../../styles/images/daily-midnight.png');
+  background-size: 100% 100%;
+
+  .info {
+    position: relative;
+    width: 100%;
+    height: 25px;
+  }
+
+  .date {
+    padding-top: 60px;
+    font-size: 140px;
+    font-weight: 100;
+    color: $white;
+  }
+
+  .day {
+    font-size: 30px;
+    font-weight: 300;
+    color: $white;
+  }
+
+  .body {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .creator {
+      margin-top: 90px;
+      font-size: 18px;
+      color: $white;
+
+      span {
+        margin-right: 17px;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
