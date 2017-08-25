@@ -1,0 +1,30 @@
+@import '../../styles/colors';
+
+.wrapper {
+  position: relative;
+  padding: 0 70px;
+
+  .header {
+    position: relative;
+    width: 100%;
+    display: flex;
+    padding-top: 130px;
+    color: $slate;
+
+    .date {
+      flex: 1 1 auto;
+      height: 100%;
+      font-size: 65px;
+      font-weight: 300;
+    }
+
+    span {
+      font-size: 30px;
+      margin: 13px 15px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

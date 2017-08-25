@@ -22,4 +22,7 @@ export default keyMirror({
   REQUEST_GET_ME: null,
   REQUEST_GET_ME_SUCCESS: null,
   REQUEST_GET_ME_ERROR: null,
+
+  /* Schedule */
+  REQUEST_SET_CALENDAR_DATE: null,
 })

@@ -1,7 +1,7 @@
 /* External dependencies */
 import Immutable from 'immutable'
 
-const UserRecord = Immutable.Record({
+const ScheduleRecord = Immutable.Record({
   id: '',
   url: '',
   startDate: '',
@@ -9,7 +9,7 @@ const UserRecord = Immutable.Record({
   isPublic: false,
 })
 
-class User extends UserRecord {
+class Schedule extends ScheduleRecord {
 }
 
-export default User
+export default Schedule
