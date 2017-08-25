@@ -1,5 +1,6 @@
 /* External dependencies */
 import React from 'react'
+import classNames from 'classnames'
 import autobind from 'core-decorators/lib/autobind'
 import FontAwesome from 'react-fontawesome'
 import { connect } from 'react-redux'
@@ -67,7 +68,7 @@ class DailySchedule extends React.Component {
 
   render() {
     return (
-      <div className={styles.wrapper}>
+      <div className={classNames(styles.wrapper, this.props.className)}>
         <div className={styles.info}>
           <UserInfo onSignOut={this.handleSignOut} user={this.props.user} />
         </div>

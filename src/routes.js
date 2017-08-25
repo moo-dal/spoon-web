@@ -7,7 +7,7 @@ import reduxService from './services/reduxService'
 import App from './containers/App'
 import SignIn from './containers/SignIn'
 import SignUp from './containers/SignUp'
-import Daily from './containers/DailySchedule'
+import Schedule from './containers/Schedule'
 
 export default (
   <Router history={reduxService.getHistory()}>
@@ -15,7 +15,7 @@ export default (
       <IndexRedirect to="signin" />
       <Route path="signin" component={SignIn} />
       <Route path="signup" component={SignUp} />
-      <Route path="daily" component={Daily} />
+      <Route path="schedule" component={Schedule} />
     </Route>
   </Router>
 )
