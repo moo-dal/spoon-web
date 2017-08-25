@@ -18,7 +18,7 @@ class SignIn extends React.Component {
     this.props.dispatch(accountActions.signIn(user))
       .promise
       .then(() => {
-        this.props.dispatch(push('/daily'))
+        this.props.dispatch(push('/schedule'))
       }, () => {
         console.log("로그인 실패")
       })
