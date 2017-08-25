@@ -32,18 +32,30 @@ class SignIn extends React.Component {
   render() {
     return (
       <div className={styles.wrapper}>
-        <div className={styles.header}>
-          SIGN IN
+        <div className={styles.illustration}>
+          <div className={styles.title}>
+            {
+              '함께 만들어가는\n' +
+              '공유달력  SPOON\n' +
+              '\n' +
+              '지금 시작해보세요.'
+            }
+          </div>
         </div>
-        <div className={styles.body}>
-          <SignInForm onSignIn={this.handleSignIn} />
+        <div className={styles.form}>
+          <div className={styles.header}>
+            SIGN IN
+          </div>
+          <div className={styles.body}>
+            <SignInForm onSignIn={this.handleSignIn} />
+          </div>
+          <Button
+            onClick={this.handleClickSignUp}
+            buttonType={Button.ButtonTypes.BORDER}
+            className={styles.button}>
+            회원 가입
+          </Button>
         </div>
-        <Button
-          onClick={this.handleClickSignUp}
-          buttonType={Button.ButtonTypes.BORDER}
-          className={styles.button}>
-          회원 가입
-        </Button>
       </div>
     )
   }

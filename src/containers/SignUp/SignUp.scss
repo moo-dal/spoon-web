@@ -1,19 +1,48 @@
 @import '../../styles/colors';
 
 .wrapper {
-  position: relative;
-  width: 600px;
-  height: 100%;
-  padding: 68px 66px;
-  background-color: $pale-grey;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
 
-  .header {
-    color: $slate;
-    font-size: 50px;
-    font-weight: 300;
+  .illustration {
+    flex: 1 1 auto;
+    min-width: 600px;
+    padding-left: 80px;
+    background-image: url('../../styles/images/fullmoon.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    .title {
+      padding-top: 200px;
+      white-space: pre;
+      font-size: 36px;
+      font-weight: 300;
+      color: $white;
+    }
   }
 
-  .body {
+  .form {
+    position: relative;
+    width: 600px;
+    height: 100%;
+    min-width: 600px;
+    padding: 68px 66px;
+    background-color: $pale-grey;
+    overflow: auto;
 
+    .header {
+      color: $slate;
+      font-size: 50px;
+      font-weight: 300;
+    }
+
+    .body {
+
+    }
   }
 }
