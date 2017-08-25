@@ -7,10 +7,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 110px;
-  background-color: $pale-grey;
+  padding-top: 40px;
+  background-image: url('../../styles/images/daily-midnight.png');
+  background-size: 100% 100%;
+
+  .info {
+    position: relative;
+    width: 100%;
+    height: 25px;
+  }
 
   .date {
+    padding-top: 60px;
     font-size: 140px;
     font-weight: 100;
     color: $white;

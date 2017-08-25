@@ -9,6 +9,7 @@ import styles from './Button.scss'
 const ButtonTypes = keyMirror({
   DEFAULT: null,
   BORDER: null,
+  WHITE: null,
 })
 
 class Button extends React.Component {
@@ -20,6 +21,9 @@ class Button extends React.Component {
 
       case ButtonTypes.BORDER:
         return styles.border
+
+      case ButtonTypes.WHITE:
+        return styles.white
 
       default:
         return styles.default

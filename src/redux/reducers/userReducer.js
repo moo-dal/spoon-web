@@ -43,6 +43,12 @@ export default (state = initState, action) => {
         hasError: true,
       }
 
+    case AT.REQUEST_SIGN_OUT:
+      return {
+        ...state,
+        user: new User(),
+      }
+
     default:
       return state
   }
