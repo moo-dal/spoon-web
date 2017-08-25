@@ -1,5 +1,6 @@
 /* External dependencies */
 import Immutable from 'immutable'
+import moment from 'moment'
 
 const CalendarDateRecord = Immutable.Record({
   year: 0,
@@ -32,6 +33,10 @@ class CalendarDate extends CalendarDateRecord {
       year: this.year,
       month: this.month + 1,
     })
+  }
+
+  getStringDate() {
+    return moment(Date(this.year, this.month, this.date)).format('dddd').toUpperCase() || '알수없음'
   }
 }
 
