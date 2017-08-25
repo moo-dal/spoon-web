@@ -25,4 +25,5 @@ export default keyMirror({
 
   /* Schedule */
   REQUEST_SET_CALENDAR_DATE: null,
+  REQUEST_SET_SELECTED_DATE: null,
 })
