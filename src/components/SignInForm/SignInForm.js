@@ -64,6 +64,7 @@ class SignInForm extends React.Component {
       <form className={styles.wrapper} onSubmit={handleSubmit(this.handleSignIn)}>
         <Field name="email" component={this.renderEmailField} />
         <Field name="password" component={this.renderPasswordField} />
+        <div className={styles.dummy} />
         <Button type="submit" className={styles.button}>
           로그인하기
         </Button>

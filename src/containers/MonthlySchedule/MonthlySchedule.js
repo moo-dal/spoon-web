@@ -10,6 +10,7 @@ import styles from './MonthlySchedule.scss'
 import userSelector from '../../redux/selectors/userSelector'
 import scheduleSelector from '../../redux/selectors/schelduleSelector'
 import scheduleActions from '../../redux/actions/scheduleActions'
+import Calendar from "../../components/Calendar";
 
 const mapStateToProps = (state) => ({
   user: userSelector.getUser(state),
@@ -31,6 +32,11 @@ class MonthlySchedule extends React.Component {
     this.props.dispatch(scheduleActions.setCalendarDate(payload))
   }
 
+  @autobind
+  handleClickDate(selectedDate) {
+    this.props.dispatch(scheduleActions.setSelectedDate({ selectedDate }))
+  }
+
   render() {
     return (
       <div className={classNames(styles.wrapper, this.props.className)}>
@@ -40,6 +46,11 @@ class MonthlySchedule extends React.Component {
           </div>
           <FontAwesome onClick={this.handleClickPrevMonth} name="chevron-left" />
           <FontAwesome onClick={this.handleClickNextMonth} name="chevron-right" />
+        </div>
+        <div className={styles.body}>
+          <Calendar
+            onClickDate={this.handleClickDate}
+            calendarDate={this.props.calendarDate} />
         </div>
       </div>
     )

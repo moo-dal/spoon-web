@@ -10,11 +10,13 @@ import { replace } from 'react-router-redux'
 import styles from './DailySchedule.scss'
 import accountActions from '../../redux/actions/accountActions'
 import userSelector from '../../redux/selectors/userSelector'
+import scheduleSelector from '../../redux/selectors/schelduleSelector'
 import UserInfo from '../../components/UserInfo'
 import CreateScheduleForm from '../../components/CreateScheduleForm'
 
 const mapStateToProps = (state) => ({
   user: userSelector.getUser(state),
+  selectedDate: scheduleSelector.getSelectedDate(state),
 })
 
 @connect(mapStateToProps)
@@ -72,8 +74,8 @@ class DailySchedule extends React.Component {
         <div className={styles.info}>
           <UserInfo onSignOut={this.handleSignOut} user={this.props.user} />
         </div>
-        <div className={styles.date}>14</div>
-        <div className={styles.day}>TUESDAY</div>
+        <div className={styles.date}>{this.props.selectedDate.date}</div>
+        <div className={styles.day}>{this.props.selectedDate.getStringDate()}</div>
         {this.renderBody()}
       </div>
     )

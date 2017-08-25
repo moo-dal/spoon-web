@@ -51,7 +51,6 @@ class SignUpForm extends React.Component {
           E-mail
         </div>
         <Input
-          autoFocus
           value={input.value}
           onChange={input.onChange}
           placeholder="이메일을 입력해주세요"

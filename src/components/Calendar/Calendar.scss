@@ -1,0 +1,30 @@
+@import '../../styles/colors';
+
+.wrapper {
+  font-size: 18px;
+  color: $slate;
+
+  .row {
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 700px;
+
+    .cell {
+      width: 40px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $slate;
+
+      &.clickable {
+        cursor: pointer;
+
+        &:hover {
+          color: $black;
+        }
+      }
+    }
+  }
+}

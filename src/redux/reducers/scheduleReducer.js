@@ -13,7 +13,7 @@ const initState = {
   selectedDate: new CalendarDate({
     year: moment().year(),
     month: moment().month(),
-    day: moment().day(),
+    date: moment().date(),
   })
 }
 
@@ -24,6 +24,12 @@ export default (state = initState, action) => {
       return {
         ...state,
         calendarDate: action.payload.calendarDate,
+      }
+
+    case AT.REQUEST_SET_SELECTED_DATE:
+      return {
+        ...state,
+        selectedDate: action.payload.selectedDate,
       }
 
     default:
