@@ -16,7 +16,6 @@ class Calendar extends React.Component {
 
   @autobind
   handleClickDate(date) {
-    console.log(date)
     this.props.onClickDate(new CalendarDate({
       year: this.props.calendarDate.year,
       month: this.props.calendarDate.month,

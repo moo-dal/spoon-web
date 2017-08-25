@@ -36,7 +36,8 @@ class CalendarDate extends CalendarDateRecord {
   }
 
   getStringDate() {
-    return moment(Date(this.year, this.month, this.date)).format('dddd').toUpperCase() || '알수없음'
+    const today = (moment({ year: this.year, months: this.month, date: this.date }).format('dddd') || '').toUpperCase()
+    return today || '알수없음'
   }
 }
 
