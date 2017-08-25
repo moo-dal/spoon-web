@@ -18,6 +18,8 @@
     "lodash": "^4.17.4",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-fontawesome": "^1.6.1",
+    "react-overlays": "^0.8.0",
     "react-redux": "^5.0.5",
     "react-router": "^2.8.1",
     "react-router-redux": "^4.0.8",

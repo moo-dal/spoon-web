@@ -52,6 +52,10 @@ class ApiService {
     this.token = token
   }
 
+  clearToken() {
+    this.token = null
+  }
+
   get(url) {
     return fetch(this.END_POINT + url, {
       method: 'GET',
