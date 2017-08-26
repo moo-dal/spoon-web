@@ -1,13 +1,11 @@
 /* External dependencies */
 import React from 'react'
-import { connect } from 'react-redux'
 
 /* Internal dependencies */
 import styles from './Schedule.scss'
 import DailySchedule from '../DailySchedule'
 import MonthlySchedule from '../MonthlySchedule'
 
-@connect()
 class Schedule extends React.Component {
 
   render() {

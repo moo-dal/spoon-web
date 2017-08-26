@@ -14,7 +14,9 @@ import Calendar from "../../components/Calendar";
 
 const mapStateToProps = (state) => ({
   user: userSelector.getUser(state),
+  selectedDate: scheduleSelector.getSelectedDate(state),
   calendarDate: scheduleSelector.getCalendarDate(state),
+  todayDate: scheduleSelector.getTodayDate(state),
 })
 
 @connect(mapStateToProps)
@@ -50,6 +52,8 @@ class MonthlySchedule extends React.Component {
         <div className={styles.body}>
           <Calendar
             onClickDate={this.handleClickDate}
+            todayDate={this.props.todayDate}
+            selectedDate={this.props.selectedDate}
             calendarDate={this.props.calendarDate} />
         </div>
       </div>

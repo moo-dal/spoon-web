@@ -39,6 +39,30 @@ class CalendarDate extends CalendarDateRecord {
     const today = (moment({ year: this.year, months: this.month, date: this.date }).format('dddd') || '').toUpperCase()
     return today || '알수없음'
   }
+
+  equal(comp) {
+    return this.year === comp.year && this.month === comp.month && this.date === comp.date
+  }
+
+  laterOrEqual(comp) {
+    if (this.year === comp.year) {
+      if (this.month === comp.month) {
+        return this.date >= comp.date
+      }
+      return this.month >= comp.month
+    }
+    return this.year > comp.year
+  }
+
+  prevOrEqual(comp) {
+    if (this.year === comp.year) {
+      if (this.month === comp.month) {
+        return this.date <= comp.date
+      }
+      return this.month < comp.month
+    }
+    return this.year < comp.year
+  }
 }
 
 export default CalendarDate
