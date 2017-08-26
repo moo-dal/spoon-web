@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 /* Internal dependencies */
 import styles from './MonthlySchedule.scss'
 import userSelector from '../../redux/selectors/userSelector'
-import scheduleSelector from '../../redux/selectors/schelduleSelector'
+import scheduleSelector from '../../redux/selectors/scheduleSelector'
 import scheduleActions from '../../redux/actions/scheduleActions'
 import Calendar from "../../components/Calendar";
 
@@ -17,6 +17,7 @@ const mapStateToProps = (state) => ({
   selectedDate: scheduleSelector.getSelectedDate(state),
   calendarDate: scheduleSelector.getCalendarDate(state),
   todayDate: scheduleSelector.getTodayDate(state),
+  monthlySchedules: scheduleSelector.getMonthlySchedules(state),
 })
 
 @connect(mapStateToProps)
@@ -46,18 +47,19 @@ class MonthlySchedule extends React.Component {
           <div className={styles.date}>
             {`${this.props.calendarDate.year}.${this.props.calendarDate.month}`}
           </div>
-          <FontAwesome onClick={this.handleClickPrevMonth} name="chevron-left" />
-          <FontAwesome onClick={this.handleClickNextMonth} name="chevron-right" />
+          <FontAwesome onClick={this.handleClickPrevMonth} name="chevron-left"/>
+          <FontAwesome onClick={this.handleClickNextMonth} name="chevron-right"/>
         </div>
         <div className={styles.body}>
           <Calendar
+            monthlySchedules={this.props.monthlySchedules}
             onClickDate={this.handleClickDate}
             todayDate={this.props.todayDate}
             selectedDate={this.props.selectedDate}
-            calendarDate={this.props.calendarDate} />
+            calendarDate={this.props.calendarDate}/>
         </div>
       </div>
-    )
+    );
   }
 }
 

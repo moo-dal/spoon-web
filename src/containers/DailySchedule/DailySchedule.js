@@ -11,7 +11,7 @@ import styles from './DailySchedule.scss'
 import accountActions from '../../redux/actions/accountActions'
 import scheduleActions from '../../redux/actions/scheduleActions'
 import userSelector from '../../redux/selectors/userSelector'
-import scheduleSelector from '../../redux/selectors/schelduleSelector'
+import scheduleSelector from '../../redux/selectors/scheduleSelector'
 import UserInfo from '../../components/UserInfo'
 import CreateScheduleForm from '../../components/CreateScheduleForm'
 
@@ -26,7 +26,7 @@ class DailySchedule extends React.Component {
   constructor() {
     super()
     this.state = {
-      showCreator: true,
+      showCreator: false,
     }
   }
 
