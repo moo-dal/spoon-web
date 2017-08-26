@@ -12,13 +12,16 @@ const CalendarDateRecord = Immutable.Record({
 class CalendarDate extends CalendarDateRecord {
   constructor(args) {
     if (_.isPlainObject(args)) {
-      super(args)
+      super({
+        ...args,
+        date: args.date || 1,
+      })
     } else if (_.isString(args)) {
       const arr = args.split('-')
       super({
         year: +arr[0],
         month: +arr[1],
-        date: +arr[2],
+        date: +arr[2] || 1,
       })
     }
   }
@@ -50,7 +53,7 @@ class CalendarDate extends CalendarDateRecord {
   }
 
   getStringDate() {
-    const today = (moment(new Date(this.year, this.month, this.date)).format('dddd') || '').toUpperCase()
+    const today = (moment(new Date(this.year, this.month - 1, this.date)).format('dddd') || '').toUpperCase()
     return today || '알수없음'
   }
 
@@ -93,7 +96,7 @@ class CalendarDate extends CalendarDateRecord {
   }
 
   toFormat(format) {
-    return moment(new Date(this.year, this.month, this.date)).format(format)
+    return moment(new Date(this.year, this.month - 1, this.date)).format(format)
   }
 }
 
