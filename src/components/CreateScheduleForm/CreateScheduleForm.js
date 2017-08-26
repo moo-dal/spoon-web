@@ -1,6 +1,5 @@
 /* External dependencies */
 import React from 'react'
-import FontAwesome from 'react-fontawesome'
 import { reduxForm, Field } from 'redux-form'
 import autobind from 'core-decorators/lib/autobind'
 
@@ -14,12 +13,14 @@ import Button from '../../elements/Button'
   initialValues: {
     title: '',
     url: '',
-    startDate: '',
-    endData: '',
-    isPublic: false,
   }
 })
 class CreateScheduleForm extends React.Component {
+
+  @autobind
+  handleSubmit(schedule) {
+    this.props.onCreate(schedule)
+  }
 
   @autobind
   renderTitleField(field) {
@@ -30,6 +31,7 @@ class CreateScheduleForm extends React.Component {
           일정명
         </div>
         <Input
+          autoFocus
           className={styles.input}
           placeholder="일정을 소개해주세요."
           onChange={input.onChange} />
@@ -56,12 +58,24 @@ class CreateScheduleForm extends React.Component {
   render() {
     const { submitting, pristine, handleSubmit } = this.props
     return (
-      <form className={styles.wrapper}>
+      <form className={styles.wrapper} onSubmit={handleSubmit(this.handleSubmit)}>
         <div className={styles.header}>
           <div className={styles.title}>내 일정 등록</div>
         </div>
         <Field name="title" component={this.renderTitleField} />
         <Field name="url" component={this.renderURLField} />
+        <div className={styles.footer}>
+          <Button
+            type="button"
+            onClick={this.props.onCancel}
+            buttonType={Button.ButtonTypes.BORDER}
+            className={styles.button}>
+            취소
+          </Button>
+          <Button type="submit" className={styles.button}>
+            등록
+          </Button>
+        </div>
       </form>
     )
   }

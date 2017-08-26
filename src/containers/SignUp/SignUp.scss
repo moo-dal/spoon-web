@@ -44,5 +44,20 @@
     .body {
 
     }
+
+    .footer {
+      margin-top: 40px;
+      color: $slate;
+      font-size: 16px;
+
+      .signin {
+        margin-left: 15px;
+
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
+    }
   }
 }

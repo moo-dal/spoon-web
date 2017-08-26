@@ -24,6 +24,11 @@ class SignUp extends React.Component {
       })
   }
 
+  @autobind
+  handleClickSignIn() {
+    this.props.dispatch(push('/signin'))
+  }
+
   render() {
     return (
       <div className={styles.wrapper}>
@@ -43,6 +48,12 @@ class SignUp extends React.Component {
           </div>
           <div className={styles.body}>
             <SignUpForm onSignUp={this.handleSignUp} />
+          </div>
+          <div className={styles.footer}>
+            이미 아이디가 있으신가요?
+            <span className={styles.signin} onClick={this.handleClickSignIn}>
+              로그인 하기
+            </span>
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 /* External dependencies */
 import 'whatwg-fetch'
 import _ from 'lodash'
+import qs from 'qs'
 
 /* Internal dependencies */
 import localStorageService from './localStoregeService'
@@ -16,7 +17,7 @@ class ApiService {
    * Private Methods
    */
 
-  _bodyToJSON(body) {
+  _convertToSnakeCase(body) {
     return _.mapKeys(body, (value, key) => _.snakeCase(key))
   }
 
@@ -56,8 +57,14 @@ class ApiService {
     this.token = null
   }
 
-  get(url) {
-    return fetch(this.END_POINT + url, {
+  get(url, query) {
+    const queryUrl = (() => {
+      if (query) {
+        return `${url}?${qs.stringify(this._convertToSnakeCase(query))}`
+      }
+      return url
+    })()
+    return fetch(this.END_POINT + queryUrl, {
       method: 'GET',
       headers: this._getDefaultHeader()
     })
@@ -73,7 +80,7 @@ class ApiService {
         ...this._getDefaultHeader(),
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(this._bodyToJSON(body))
+      body: JSON.stringify(this._convertToSnakeCase(body))
     })
       .then(this._checkStatus)
       .then(this._parseJSON)

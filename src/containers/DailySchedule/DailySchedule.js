@@ -9,14 +9,17 @@ import { replace } from 'react-router-redux'
 /* Internal dependencies */
 import styles from './DailySchedule.scss'
 import accountActions from '../../redux/actions/accountActions'
+import scheduleActions from '../../redux/actions/scheduleActions'
 import userSelector from '../../redux/selectors/userSelector'
-import scheduleSelector from '../../redux/selectors/schelduleSelector'
+import scheduleSelector from '../../redux/selectors/scheduleSelector'
 import UserInfo from '../../components/UserInfo'
 import CreateScheduleForm from '../../components/CreateScheduleForm'
+import ScheduleItem from '../../components/ScheduleItem'
 
 const mapStateToProps = (state) => ({
   user: userSelector.getUser(state),
   selectedDate: scheduleSelector.getSelectedDate(state),
+  dailySchedules: scheduleSelector.getDailySchedules(state),
 })
 
 @connect(mapStateToProps)
@@ -25,7 +28,7 @@ class DailySchedule extends React.Component {
   constructor() {
     super()
     this.state = {
-      showCreator: true,
+      showCreator: false,
     }
   }
 
@@ -33,6 +36,20 @@ class DailySchedule extends React.Component {
   handleSignOut() {
     this.props.dispatch(accountActions.signOut())
     this.props.dispatch(replace('/signin'))
+  }
+
+  @autobind
+  handleCreateSchedule(schedule) {
+    const payload = {
+      schedule: {
+        ...schedule,
+        startDate: this.props.selectedDate.toFormat('YYYY-MM-DD'),
+        endDate: this.props.selectedDate.toFormat('YYYY-MM-DD'),
+        calendarId: 0,
+        isPublic: false,
+      }
+    }
+    return this.props.dispatch(scheduleActions.createSchedule(payload))
   }
 
   @autobind
@@ -54,6 +71,7 @@ class DailySchedule extends React.Component {
       return (
         <div className={styles.body}>
           <CreateScheduleForm
+            onCreate={this.handleCreateSchedule}
             onCancel={this.handleHideCreator} />
         </div>
       )
@@ -63,6 +81,11 @@ class DailySchedule extends React.Component {
         <div onClick={this.handleShowCreator} className={styles.creator}>
           <FontAwesome name="plus" />
           새로운 일정 등록하기
+        </div>
+        <div className={styles.list}>
+          {this.props.dailySchedules.map(schedule => (
+            <ScheduleItem className={styles.item} schedule={schedule} />
+          ))}
         </div>
       </div>
     )

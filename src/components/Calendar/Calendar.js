@@ -23,11 +23,49 @@ class Calendar extends React.Component {
     }))
   }
 
+  isToday(date) {
+    return (new CalendarDate({
+      year: this.props.calendarDate.year,
+      month: this.props.calendarDate.month,
+      date,
+    })).equal(this.props.todayDate)
+  }
+
+  isSelected(date) {
+    return (new CalendarDate({
+      year: this.props.calendarDate.year,
+      month: this.props.calendarDate.month,
+      date,
+    })).equal(this.props.selectedDate)
+  }
+
+  hasSchedule(date) {
+    const calDate = new CalendarDate({
+      year: this.props.calendarDate.year,
+      month: this.props.calendarDate.month,
+      date,
+    })
+    return date && this.props.monthlySchedules.findIndex(schedule => schedule.includeDate(calDate)) !== -1
+  }
+
+
   renderHeader() {
     return (
       <div className={styles.row}>
         {days.map((val, idx) => (<div key={idx} className={styles.cell}>{val}</div>))}
       </div>
+    )
+  }
+
+  getCellStyles(date) {
+    return classNames(
+      styles.cell,
+      {
+        [styles.clickable]: date,
+        [styles.today]: this.isToday(date),
+        [styles.selected]: this.isSelected(date),
+        [styles.schedule]: this.hasSchedule(date),
+      }
     )
   }
 
@@ -40,7 +78,7 @@ class Calendar extends React.Component {
             <div
               onClick={() => (date ? this.handleClickDate(date) : null)}
               key={idx}
-              className={classNames(styles.cell, { [styles.clickable]: date })}>
+              className={this.getCellStyles(date)}>
               {date ? date : ''}
             </div>
           ))}

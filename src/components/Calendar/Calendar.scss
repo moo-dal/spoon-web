@@ -5,24 +5,59 @@
   color: $slate;
 
   .row {
-    margin-bottom: 25px;
+    margin-bottom: 38px;
     display: flex;
     justify-content: space-between;
     max-width: 700px;
 
     .cell {
-      width: 40px;
+      position: relative;
+      width: 35px;
       height: 35px;
       display: flex;
       align-items: center;
       justify-content: center;
       color: $slate;
 
+      &.today {
+        font-weight: bold;
+      }
+
+      &.selected {
+        color: $white;
+        opacity: .8;
+        background-color: $bluegrey;
+        border-radius: 50%;
+
+        &:hover {
+          color: $white;
+        }
+      }
+
       &.clickable {
         cursor: pointer;
 
+        &.selected {
+          &:hover {
+            color: $white;
+          }
+        }
+
         &:hover {
           color: $black;
+        }
+      }
+
+      &.schedule {
+        &::after {
+          position: absolute;
+          left: 14px;
+          top: 37px;
+          content: '';
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background-color: $pale-salmon;
         }
       }
     }
