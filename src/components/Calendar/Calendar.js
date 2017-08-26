@@ -45,7 +45,7 @@ class Calendar extends React.Component {
       month: this.props.calendarDate.month,
       date,
     })
-    return this.props.monthlySchedules.findIndex(schedule => schedule.includeDate(calDate)) !== -1
+    return date && this.props.monthlySchedules.findIndex(schedule => schedule.includeDate(calDate)) !== -1
   }
 
 

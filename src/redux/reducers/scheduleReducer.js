@@ -11,20 +11,22 @@ import Schedule from '../../models/Schedule'
 const initState = {
   calendarDate: new CalendarDate({
     year: moment().year(),
-    month: moment().month(),
+    month: moment().month() + 1,
   }),
   selectedDate: new CalendarDate({
     year: moment().year(),
-    month: moment().month(),
+    month: moment().month() + 1,
     date: moment().date(),
   }),
   todayDate: new CalendarDate({
     year: moment().year(),
-    month: moment().month(),
+    month: moment().month() + 1,
     date: moment().date(),
   }),
   schedules: Immutable.List(),
 }
+
+console.log(initState.calendarDate.toFormat('YYYY-MM-DD'))
 
 const upsert = (list, data) => {
   const idx = list.findIndex(elem => elem.id === data.id)

@@ -1,6 +1,6 @@
 /* External dependencies */
+import _ from 'lodash'
 import Immutable from 'immutable'
-import moment from 'moment'
 
 /* Internal dependencies */
 import CalendarDate from './CalendarDate'
@@ -16,6 +16,10 @@ const ScheduleRecord = Immutable.Record({
 })
 
 class Schedule extends ScheduleRecord {
+  constructor(args) {
+    super(_.mapKeys(args, (val, key) => _.snakeCase(key)))
+  }
+
   includeMonth(date) {
     const sDate = new CalendarDate(this.start_date)
     const eDate = new CalendarDate(this.end_date)
