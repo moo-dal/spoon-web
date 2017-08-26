@@ -14,6 +14,11 @@ const initState = {
     year: moment().year(),
     month: moment().month(),
     date: moment().date(),
+  }),
+  todayDate: new CalendarDate({
+    year: moment().year(),
+    month: moment().month(),
+    date: moment().date(),
   })
 }
 
