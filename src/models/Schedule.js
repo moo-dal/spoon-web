@@ -7,6 +7,8 @@ const ScheduleRecord = Immutable.Record({
   startDate: '',
   endDate: '',
   isPublic: false,
+  calendarId: 0,
+  userId: 0,
 })
 
 class Schedule extends ScheduleRecord {

@@ -9,6 +9,7 @@ import { replace } from 'react-router-redux'
 /* Internal dependencies */
 import styles from './DailySchedule.scss'
 import accountActions from '../../redux/actions/accountActions'
+import scheduleActions from '../../redux/actions/scheduleActions'
 import userSelector from '../../redux/selectors/userSelector'
 import scheduleSelector from '../../redux/selectors/schelduleSelector'
 import UserInfo from '../../components/UserInfo'
@@ -36,6 +37,20 @@ class DailySchedule extends React.Component {
   }
 
   @autobind
+  handleCreateSchedule(schedule) {
+    const payload = {
+      schedule: {
+        ...schedule,
+        startDate: this.props.selectedDate.toFormat('YYYY-MM-DD'),
+        endDate: this.props.selectedDate.toFormat('YYYY-MM-DD'),
+        calendarId: 0,
+        isPublic: false,
+      }
+    }
+    return this.props.dispatch(scheduleActions.createSchedule(payload))
+  }
+
+  @autobind
   handleShowCreator() {
     this.setState({
       showCreator: true,
@@ -54,6 +69,7 @@ class DailySchedule extends React.Component {
       return (
         <div className={styles.body}>
           <CreateScheduleForm
+            onCreate={this.handleCreateSchedule}
             onCancel={this.handleHideCreator} />
         </div>
       )
