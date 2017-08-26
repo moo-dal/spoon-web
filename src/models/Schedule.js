@@ -7,6 +7,7 @@ import CalendarDate from './CalendarDate'
 
 const ScheduleRecord = Immutable.Record({
   id: '',
+  title: '',
   url: '',
   start_date: '',
   end_date: '',

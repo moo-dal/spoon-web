@@ -1,0 +1,52 @@
+@import '../../styles/colors';
+
+.wrapper {
+  height: 90px;
+  display: flex;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: $white-40;
+  color: $white;
+
+  .meta {
+    width: 25px;
+
+    .dot {
+      margin-left: 8px;
+      margin-top: 11px;
+      width: 6px;
+      height: 6px;
+      background-color: $pale-salmon;
+      border-radius: 50%;
+    }
+  }
+
+  .content {
+    flex: 1 1 auto;
+
+    .title {
+      height: 30px;
+      display: flex;
+      align-items: center;
+    }
+
+    .date {
+      height: 30px;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      color: $white-70;
+    }
+  }
+
+  .action {
+    display: flex;
+    align-items: center;
+
+    .button {
+      width: 150px;
+      height: 45px;
+      font-size: 16px;
+    }
+  }
+}
