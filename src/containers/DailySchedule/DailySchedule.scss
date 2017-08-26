@@ -34,7 +34,8 @@
     position: relative;
     width: 100%;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
     .creator {
       margin-top: 90px;
@@ -47,6 +48,16 @@
 
       &:hover {
         cursor: pointer;
+      }
+    }
+
+    .list {
+      margin-top: 30px;
+      width: 100%;
+      padding: 0px 40px;
+
+      .item {
+        margin-bottom: 15px;
       }
     }
   }

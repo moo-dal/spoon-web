@@ -13,9 +13,16 @@ const getMonthlySchedules = createSelector(
   (calendarDate, schedules) => schedules.filter(schedule => schedule.includeMonth(calendarDate))
 )
 
+const getDailySchedules = createSelector(
+  getSelectedDate,
+  state => state.scheduleReducer.schedules,
+  (selectedDate, schedules) => schedules.filter(schedule => schedule.includeDate(selectedDate))
+)
+
 export default {
   getCalendarDate,
   getSelectedDate,
   getTodayDate,
   getMonthlySchedules,
+  getDailySchedules,
 }

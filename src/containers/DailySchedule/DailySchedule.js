@@ -14,10 +14,12 @@ import userSelector from '../../redux/selectors/userSelector'
 import scheduleSelector from '../../redux/selectors/scheduleSelector'
 import UserInfo from '../../components/UserInfo'
 import CreateScheduleForm from '../../components/CreateScheduleForm'
+import ScheduleItem from '../../components/ScheduleItem'
 
 const mapStateToProps = (state) => ({
   user: userSelector.getUser(state),
   selectedDate: scheduleSelector.getSelectedDate(state),
+  dailySchedules: scheduleSelector.getDailySchedules(state),
 })
 
 @connect(mapStateToProps)
@@ -79,6 +81,11 @@ class DailySchedule extends React.Component {
         <div onClick={this.handleShowCreator} className={styles.creator}>
           <FontAwesome name="plus" />
           새로운 일정 등록하기
+        </div>
+        <div className={styles.list}>
+          {this.props.dailySchedules.map(schedule => (
+            <ScheduleItem className={styles.item} schedule={schedule} />
+          ))}
         </div>
       </div>
     )
