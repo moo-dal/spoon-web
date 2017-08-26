@@ -63,6 +63,14 @@ class CalendarDate extends CalendarDateRecord {
     }
     return this.year < comp.year
   }
+
+  toFormat(format) {
+    return moment({
+      year: this.year,
+      months: this.month,
+      date: this.date
+    }).format(format)
+  }
 }
 
 export default CalendarDate
